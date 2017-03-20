@@ -65,6 +65,15 @@ multiply(4, 3, function(answer){
 // If it does, return true using the callback, if not return false.
 
   //Code Here 
+function contains(names, nameID, cb) {
+  var indicator = false;
+  for(var i = 0; i < names.length; i++) {
+    if(names[i] === nameID){
+      indicator = true;
+    }
+  }
+  cb(indicator);
+}
 
 contains(names, 'Colt', function(result){
   if(result === true){
@@ -78,8 +87,19 @@ contains(names, 'Colt', function(result){
 
 // 5. Write a function called uniq that takes the names array and removes all duplicates and returns 
 // the callback function with the array of unique names.
-
     //Code Here
+function uniq(names, cb) {
+  var tempArr = [];
+  for(var i = 0; i < names.length; i++) {
+    console.log('Showing 0 index: ' + names[0]);
+    console.log('Showing index: ' + names[i]);
+    if(tempArr.indexOf(names[i]) === -1){
+      tempArr.push(names[i]);
+      console.log('Showing temp Array: ' + tempArr);
+    }
+  }
+  cb(tempArr);
+}
 
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
@@ -88,8 +108,12 @@ uniq(names, function(uniqArr){
 
 // 6. Write a function called each that takes in an array of names. For each item, use a callback 
 // function to return the indices and item.
-
     //Code Here 
+function each(names, cb) {
+  for (var i = 0; i < names.length; i++) {
+    cb(names[i], i);
+  }
+}
 
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
