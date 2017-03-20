@@ -58,7 +58,7 @@ function multiply(num, num2, cb) {
 
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
-})
+});
 
 
 // 4. Write a function called contains that checks if a name exists in an array. 
