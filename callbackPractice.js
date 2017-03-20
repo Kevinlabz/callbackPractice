@@ -123,7 +123,6 @@ each(names, function(item, indice){
 
 // 7. Write a function called getUserById that looks at the array of user objects (users) and searches for a user by ID 
 // and returns that user.
-
  //Code Here
 
 var users = [
@@ -146,6 +145,15 @@ var users = [
     address: '192 East 32 North'
   },
 ];
+
+function getUserById(users, id, cb) {
+  for(var i = 0; i < users.length; i++){
+    if(users[i].id === id) {
+      cb(users[i]);
+      return users[i];
+    }
+  } 
+}
 
 getUserById(users, '16t', function(user){
   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address); 
